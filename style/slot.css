@@ -1,0 +1,101 @@
+/* slot machine css */
+#slots {
+  background-color: var(--red);
+  border: 5px solid var(--black);
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  height: auto;
+  text-align: center;
+  box-shadow: 0 0 20px black;
+  position: relative;
+}
+
+/* youtube tutorial border animation */
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+}
+
+#slots::after,
+#slots::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  top: -10px;
+  left: -10px;
+  z-index: -1;
+  border-radius: 10px;
+  padding: 10px;
+  background-image: conic-gradient(
+    from var(--angle),
+    red,
+    green,
+    blue,
+    yellow
+    
+  );
+  animation: 3s spin linear infinite;
+}
+
+#slot::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+#slotsTop {
+  margin-bottom: 20px;
+}
+
+#slotsMiddle {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.slot {
+  width: 100px;
+  height: 200px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid var(--black);
+  transition: transform 0.3s;
+}
+ 
+.slot:hover{
+    transform: translateY(-10px);
+}
+
+#spinButton {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+#result {
+  margin-top: 15px;
+  font-weight: bold;
+}

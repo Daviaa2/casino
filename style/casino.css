@@ -1,0 +1,124 @@
+:root {
+  --background-color: #0b0c10;
+  --white: #ffffff;
+  --red: #ff2e63;
+  --black: #1f2833;
+  --angle: 0deg;
+  --grey: rgb(169, 169, 169);
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: Arial, sans-serif;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* website header */
+.topBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-color: var(--red);
+}
+
+#mainHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 100px;
+  height: 100vh;
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10%;
+  font-size: larger;
+  border-bottom: var(--black);
+}
+#card {
+  height: auto;
+  width: 20%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* on scroll animation */
+#content,
+#intro,
+#rideTheBuss,
+#blackjack,
+#poker {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 30%;
+}
+/* scroll animation */
+@keyframes appear {
+  from {
+    opacity: 0.5;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+#rideTheBuss,
+#blackjack,
+#poker {
+  height: 400px; /* Adjust as needed */
+  background: #222; /* Temporary background for visibility */
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* phone compatability */
+@media (max-width: 720px) {
+  body {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  #mainHeader {
+    font-size: 2.5rem;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  #intro {
+    padding: 5%;
+    font-size: 1rem;
+  }
+
+  #card {
+    width: 60%;
+  }
+
+  .slot {
+    width: 80vw;
+    height: 60px;
+    margin: 0 auto;
+  }
+
+  #rideTheBuss,
+  #blackjack,
+  #poker {
+    height: 200px;
+    margin: 10px 0;
+  }
+}
